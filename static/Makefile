@@ -2,7 +2,7 @@
 SUBDIRS =
 
 # Default target
-all: $(SUBDIRS) swagger_gen.go build
+all: $(SUBDIRS) build #swagger_gen.go
 
 # Recurse into subdirs for same make goal
 $(SUBDIRS):
@@ -13,9 +13,9 @@ clean: $(SUBDIRS)
 	rm -f swagger_gen.go
 	rm -r build
 
-swagger_gen.go: swagger.go redoc.go swagger.yml
-	go generate -x
-	@echo '//lint:file-ignore ST1005 Ignore error strings should not be capitalized' >> swagger_gen.go
+# swagger_gen.go: swagger.go redoc.go swagger.yml
+# 	go generate -x
+# 	@echo '//lint:file-ignore ST1005 Ignore error strings should not be capitalized' >> swagger_gen.go
 
 # Target for the built UI assets directory.
 build:
