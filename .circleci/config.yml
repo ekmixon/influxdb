@@ -132,6 +132,7 @@ workflows:
             branches:
               only:
                 - "1.8"
+                - "query-perftest-1.8"
   aws_destroy_daily:
     triggers:
       - schedule:
