@@ -99,7 +99,7 @@ for scale in 50 100 500; do
   data_fname="influx-bulk-records-usecase-devops-$scale_seed_string.txt"
   $GOPATH/bin/bulk_data_gen --seed=$seed --use-case=devops --scale-var=$scale --format=influx-bulk > ${DATASET_DIR}/$data_fname
   query_files=""
-  for format in http flux-http; do
+  for format in flux-http http; do
     query_fname="query-devops-$scale_seed_string-$format.txt"
     $GOPATH/bin/bulk_query_gen --seed=$seed --use-case=devops --scale-var=$scale --format=influx-$format --db $db_name --queries 10000 --query-type 8-host-1-hr > ${DATASET_DIR}/$query_fname
     query_files="$query_files $query_fname"
