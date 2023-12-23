@@ -52,7 +52,7 @@ ENTRYPOINT [ "/usr/bin/influxd" ]
 ##
 # InfluxDB UI Image
 ##
-FROM nginx:alpine AS ui
+FROM nginx:1.25.3-alpine3.18 AS ui
 
 EXPOSE 80
 
